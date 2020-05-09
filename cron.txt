@@ -1,0 +1,2 @@
+# Execute every 5 minutes.
+*/5 * * * * /hnc/modules/hnc-base-mod-telemetry/run.sh >/dev/null 2>&1
