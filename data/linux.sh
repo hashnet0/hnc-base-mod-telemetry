@@ -5,12 +5,12 @@ API_KEY=""
 CONTAINER_NAME=""
 
 if [ ! -z "$API_KEY" ]; then
-	echo -e "Notice: API_KEY was set, overriding environment variable."
+	echo -e "WARNING: API_KEY was set, overriding environment variable."
 	HASHNET_API_KEY=$API_KEY
 fi
 
-if [ ! -z "$HNC_NAME" ]; then
-	echo -e "Notice: CONTAINER_NAME was set, overriding environment variable."
+if [ ! -z "$CONTAINER_NAME" ]; then
+	echo -e "WARNING: CONTAINER_NAME was set, overriding environment variable."
 	HNC_NAME=$CONTAINER_NAME
 fi
 
@@ -52,5 +52,5 @@ if [ $status = "true" ]; then
 	klog "Successfully sent telemetry beacon."
 else
 	error=$(echo -en $response | jq .status.error)
-	klog "Failed to send beacon. Response: $error"
+	klog "Error while sending beacon. Response: $error"
 fi
